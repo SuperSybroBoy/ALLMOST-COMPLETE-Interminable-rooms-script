@@ -112,7 +112,7 @@ local Toggle = Tab4:CreateToggle({
     Callback = function(Value)
         if Value and not connection0 then  -- if toggle is turned on and there is no connection
             connection0 = EntitiesFolder.ChildAdded:Connect(function(entity)
-                if entity.Name ~= "M120" and entity.Name ~= "John" and entity.Name ~= "Noah" and entity.Name ~= "TLAB278Clone" and entity.Name ~= "A278Clone"  and entity.Name ~= "ULB278Clone" then
+                if entity.Name ~= "TLUB-120" and entity.Name ~= "A-120 Minion" and entity.Name ~= "John" and entity.Name ~= "Noah" and entity.Name ~= "TLAB-278" and entity.Name ~= "ULB-278" and entity.Name ~= "A-245" and entity.Name ~= "A-258" then
                     game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(entity.Name .. " has spawned -_-", "All")
                 end
             end)
@@ -133,7 +133,7 @@ local Toggle = Tab4:CreateToggle({
     Callback = function(Value)
         if Value and not connection1 then  -- if toggle is turned on and there is no connection
             connection1 = EntitiesFolder.ChildRemoved:Connect(function(entity)
-                if entity.Name ~= "M120" and entity.Name ~= "John" and entity.Name ~= "Noah" and entity.Name ~= "TLAB278Clone" and entity.Name ~= "A278Clone"  and entity.Name ~= "ULB278Clone" then
+                if entity.Name ~= "TLUB-120" and entity.Name ~= "A-120 Minion" and entity.Name ~= "John" and entity.Name ~= "Noah" and entity.Name ~= "TLAB-278" and entity.Name ~= "ULB-278" and entity.Name ~= "A-245" and entity.Name ~= "A-258" then
                     game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(entity.Name .. " has despawned :)", "All")
                 end
             end)
@@ -207,6 +207,7 @@ local Toggle = Tab4:CreateToggle({
 
 
 
+
 local Section = Tab4:CreateSection("Walkspeed changer (higher values)")
 
 local Slider = Tab4:CreateSlider({
@@ -275,6 +276,16 @@ local Button = Tab4:CreateButton({
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/ANDREY4IGSCRIPTS/ScriptsForRooms/main/INTERMINABLEROOMSSCRIPTV.0.1'))()
 	end,
  })
+
+local Button = Tab4:CreateButton({
+	Name = "Dark Dex",
+	Callback = function()
+		loadstring(game:HttpGet('https://gist.githubusercontent.com/DinosaurXxX/b757fe011e7e600c0873f967fe427dc2/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4'))()
+	end,
+})
+
+
+
 
 
 
