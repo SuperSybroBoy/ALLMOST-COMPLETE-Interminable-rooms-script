@@ -112,7 +112,7 @@ local Toggle = Tab4:CreateToggle({
     Callback = function(Value)
         if Value and not connection0 then  -- if toggle is turned on and there is no connection
             connection0 = EntitiesFolder.ChildAdded:Connect(function(entity)
-                if entity.Name ~= "TLUB-120" and entity.Name ~= "A-120 Minion" and entity.Name ~= "John" and entity.Name ~= "Noah" and entity.Name ~= "TLAB-278" and entity.Name ~= "ULB-278" and entity.Name ~= "A-245" and entity.Name ~= "A-258" then
+                if entity.Name ~= "TLUB-120" and entity.Name ~= "A-120 Minion" and entity.Name ~= "John" and entity.Name ~= "Noah" and entity.Name ~= "TLAB-278" and entity.Name ~= "ULB-278" and entity.Name ~= "A-245" and entity.Name ~= "A-258" and entity.Name ~= "JohnLocker" then
                     game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(entity.Name .. " has spawned -_-", "All")
                 end
             end)
@@ -133,7 +133,7 @@ local Toggle = Tab4:CreateToggle({
     Callback = function(Value)
         if Value and not connection1 then  -- if toggle is turned on and there is no connection
             connection1 = EntitiesFolder.ChildRemoved:Connect(function(entity)
-                if entity.Name ~= "TLUB-120" and entity.Name ~= "A-120 Minion" and entity.Name ~= "John" and entity.Name ~= "Noah" and entity.Name ~= "TLAB-278" and entity.Name ~= "ULB-278" and entity.Name ~= "A-245" and entity.Name ~= "A-258" then
+                if entity.Name ~= "TLUB-120" and entity.Name ~= "A-120 Minion" and entity.Name ~= "John" and entity.Name ~= "Noah" and entity.Name ~= "TLAB-278" and entity.Name ~= "ULB-278" and entity.Name ~= "A-245" and entity.Name ~= "A-258" and entity.Name ~= "JohnLocker" then
                     game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(entity.Name .. " has despawned :)", "All")
                 end
             end)
