@@ -43,7 +43,7 @@ local Tab4 = Window:CreateTab("5Green's Mods :)", 4483362458)
 local Tab2 = Window:CreateTab("Entity Tips", 4483362458)
 local Tab5 = Window:CreateTab("Entity Tips (more in depth)", 4483362458)
 local Tab3 = Window:CreateTab("Credits", 4483362458)
-
+local Tab6 = Window:CreateTab("Change Logs", 4483362458)
 
 
 --Interminable Rooms Game Files
@@ -183,12 +183,11 @@ local Button = Tab4:CreateButton({
 
 
 
-
-local Section = Tab4:CreateSection("Godmode")
+local Section = Tab4:CreateSection("Ignore Entities")
 
 local connection4
 local Toggle = Tab4:CreateToggle({
-    Name = "Ignore Entities (NOT FINISHED)",
+    Name = "Godmode (NOT FINISHED)",
     CurrentValue = false,
     Flag = "Toggle8",
     Callback = function(Value11)
@@ -202,6 +201,122 @@ local Toggle = Tab4:CreateToggle({
         end
     end,
 })
+
+
+
+
+local connection7
+local Toggle = Tab4:CreateToggle({
+    Name = "Disable Jumpscares",
+    CurrentValue = false,
+    Flag = "Toggle389",
+    Callback = function(Value783)
+        if Value783 then
+            local Players = game:GetService("Players")
+            local Player = Players.LocalPlayer
+            local PlayerGui = Player.PlayerGui
+            local Jumpscares = PlayerGui:FindFirstChild("Jumpscares")
+
+            -- Disable each jumpscare individually by disabling the descendants
+            if Jumpscares and Jumpscares:IsA("Folder") then
+                for _, jumpscare in ipairs(Jumpscares:GetDescendants()) do
+                    if jumpscare:IsA("ScreenGui") or jumpscare:IsA("Sound") then
+                        jumpscare.Enabled = false
+                    end
+                end
+            end
+
+            -- Create a connection to re-enable the jumpscare elements if they're changed
+            connection7 = PlayerGui.DescendantAdded:Connect(function(descendant)
+                if descendant:IsA("ScreenGui") or descendant:IsA("Sound") then
+                    descendant.Enabled = false
+                end
+            end)
+        else
+            if connection7 then
+                connection7:Disconnect()
+                connection7 = nil
+            end
+        end
+    end,
+})
+
+
+
+
+local Paragraph = Tab4:CreateParagraph({Title = "Warning", Content = "\nFor some reason when you turn the button above on, it works, then when you turn it off, the code this toggles remains active, then from then on the on/off is reversed and idk why. Also I'm too lazt to fix it."})
+
+
+
+
+
+
+
+
+
+
+
+
+local connection27
+local Toggle = Tab4:CreateToggle({
+    Name = "Disable Jumpscare Sounds",
+    CurrentValue = false,
+    Flag = "Toggle347",
+    Callback = function(Value892)
+        if Value892 then
+            getgenv().disabled = true;
+            getgenv().debug = true;
+            
+            local function DisableJumpscareSounds()
+                local Player = game:GetService('Players').LocalPlayer;
+                local JumpScare_Gui = Player.PlayerGui:FindFirstChild('Jumpscares');
+                local Sounds = {};
+            
+                for i, v in next, JumpScare_Gui:GetDescendants() do
+                    if v.Name == 'Jumpscare' then
+                        table.insert(Sounds, v);
+                    end
+                end
+            
+                while getgenv().disabled do
+                    for i, v in next, Sounds do
+                        if getgenv().debug then
+                            print('[Debug]: Fixing Sound');
+                        end
+            
+                        v.MaxDistance = 0;
+                        v.Playing = false;
+                        v.Volume = 0;
+                    end
+            
+                    task.wait(2.5);
+                end
+            end
+            
+            spawn(function()
+                while getgenv().disabled do
+                    DisableJumpscareSounds();
+                end
+            end)
+        else
+            getgenv().disabled = false;
+        end
+    end,
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1527,3 +1642,6 @@ local Paragraph = Tab5:CreateParagraph({Title = "More Tips", Content = "\n• Al
 
 
 local Paragraph = Tab3:CreateParagraph({Title = "Credits", Content = "\nScript made by Nenarus#3186.\n\nMod made by 5Green#1624."})
+
+
+local Paragraph = Tab6:CreateParagraph({Title = "1.", Content = "Added Feature(s):\n\n- Remove Jumpscares\n\nDate Added: 5/22/23"})
