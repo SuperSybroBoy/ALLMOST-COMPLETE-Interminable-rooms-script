@@ -205,7 +205,7 @@ local Toggle = Tab4:CreateToggle({
 
 
 
-local Section  = Tab4:CreateSection("Ignore Jumpscares")
+local Section = Tab4:CreateSection("Ignore Jumpscares")
 
 
 
